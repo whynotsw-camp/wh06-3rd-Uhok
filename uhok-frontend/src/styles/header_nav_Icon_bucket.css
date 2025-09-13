@@ -1,0 +1,64 @@
+/* 공용 장바구니(쇼핑백) 아이콘 버튼 스타일 */
+.hn-bucket-container {
+  position: relative;
+  display: inline-block;
+}
+
+.hn-bucket-btn {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+
+  /* padding-top: 2px; */
+  padding-top: 1px;
+}
+
+.hn-bucket-btn:hover,
+.hn-bucket-btn:active,
+.hn-bucket-btn:focus,
+.hn-bucket-btn:focus-visible {
+  background: transparent;
+  outline: none;
+  box-shadow: none;
+}
+
+.hn-bucket-svg {
+  display: block;
+  color: #111; /* stroke color */
+  margin: 0 auto; /* 중앙 정렬 */
+}
+
+/* 장바구니 상품 수 배지 스타일 */
+.hn-bucket-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #ff6b9d; /* 핑크색 */
+  border-radius: 50%;
+  min-width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fff; /* 흰색 테두리 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+  z-index: 10;
+}
+
+.hn-bucket-badge-text {
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  user-select: none;
+}
+
+

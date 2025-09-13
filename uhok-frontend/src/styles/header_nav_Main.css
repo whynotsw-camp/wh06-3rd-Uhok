@@ -1,0 +1,126 @@
+/* HeaderNavMain 스타일 - HeaderNavProductList와 동일한 구조 */
+.hn-main-left,
+.hn-main-right {
+  display: flex;
+  align-items: center;
+}
+
+.hn-main-left {
+  gap: 20px;
+}
+
+.payment-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.hn-main-center {
+  flex: 1;
+}
+
+.hn-main-right {
+  justify-content: center;
+  padding-top: 7px;
+}
+
+/* 편성표 버튼 */
+.schedule-btn {
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+  min-width: 80px;
+}
+
+
+.schedule-btn:active {
+  background-color: #b81e6b;
+}
+
+/* 검색 입력 래퍼 */
+.search-input-wrapper {
+  cursor: pointer;
+  width: 100%;
+}
+
+/* 메인 검색 버튼 */
+.main-search-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 24px;
+  padding: 12px 16px;
+  transition: all 0.2s ease;
+}
+
+.main-search-button:hover {
+  background-color: #eeeeee;
+  border-color: #d0d0d0;
+}
+
+/* 검색 플레이스홀더 */
+.search-placeholder {
+  color: #666666;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* 검색 아이콘 */
+.search-icon {
+  font-size: 16px;
+  color: #999999;
+}
+
+/* 알림 버튼 */
+.notification-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  min-width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notification-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.notification-btn:active {
+  background-color: #e0e0e0;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 480px) {
+  .header-nav-main {
+    padding: 10px 12px;
+  }
+  
+  .main-search-button {
+    padding: 10px 14px;
+  }
+  
+  .search-placeholder {
+    font-size: 13px;
+  }
+  
+  .notification-btn {
+    font-size: 18px;
+    min-width: 36px;
+    height: 36px;
+  }
+}

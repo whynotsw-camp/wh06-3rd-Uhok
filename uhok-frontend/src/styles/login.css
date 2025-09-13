@@ -1,0 +1,65 @@
+h1 {
+  text-align: center;
+  color: #EA008A; 
+  margin-top: 300px;
+  margin-bottom: 50px;
+  font-size: 40px;
+}
+
+.login-form { 
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 300px
+}
+
+.login-form input {
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border: 1px solid #b6b6b6;
+  border-radius: 6px;
+  width: 100%;
+}
+
+.login-form input:focus {
+  outline: none;
+  border-color: #EA008A;
+}
+
+.login-form button {
+  padding: 10px;
+  background-color: #EA008A;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.login-form button:hover {
+  background-color: #000000;
+}
+
+.signup-link {
+  margin-top: 7px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.signup-link a {
+  text-decoration: none;
+  color: #7F7F7F;
+  cursor: pointer;
+}
+
+.signup-link a:hover {
+  color: #000;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;  /* 원하는 크기로 조절 */
+  margin-top: 5px;
+  text-align: center;
+}

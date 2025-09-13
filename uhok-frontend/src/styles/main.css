@@ -1,0 +1,447 @@
+/* Main 페이지 스타일 */
+.main-page {
+  min-height: 100vh;
+  /* background-color: #f8f9fa; */
+  padding-bottom: 80px; /* BottomNav 높이만큼 여백 */
+  overflow-y: auto;
+  position: relative; /* UpBtn 위치 기준점 */
+}
+
+/* HeaderNavMain 스타일은 header_nav_Main.css에서 관리 */
+
+/* 메인 콘텐츠 영역 */
+.main-content {
+  padding: 20px 16px;
+}
+
+/* 기존 schedule-content 스타일 유지 */
+.main-schedule-content {
+  overflow-y: scroll;
+  height: calc(100vh - 200px);
+  padding-bottom: 20px;
+}
+
+/* 스크롤바 스타일링 */
+.main-schedule-content::-webkit-scrollbar {
+  width: 3px;
+}
+
+.main-schedule-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.main-schedule-content::-webkit-scrollbar-thumb {
+  background: #e0e0e0;
+  border-radius: 4px;
+}
+
+.main-schedule-content::-webkit-scrollbar-thumb:hover {
+  background: #bbb;
+}
+
+/* 메인 페이지 제목 */
+.main-page-title {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #333333;
+  text-align: left;
+}
+
+/* 위시리스트와 동일한 하트 버튼 스타일 */
+.shopping-heart-button {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease-in-out;
+  width: 35px;
+  height: 36px;
+}
+
+.shopping-heart-icon {
+  width: 28px;
+  height: auto;
+}
+
+/* 위시리스트와 동일한 방송상태 스타일 */
+.broadcast-status {
+  background-color: #95a5a6; /* 기본 회색 (방송 예정) */
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+/* 방송 중일 때는 진한 분홍색 배경 */
+.broadcast-status.on-air {
+  background-color: #FA5F8C;
+}
+
+/* 위시리스트와 동일한 오른쪽 정보 컨테이너 */
+.wishlist-right-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 날짜 정보 */
+.schedule-header-info {
+  background-color: antiquewhite;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.date {
+  font-size: 18px;
+  color: #333333;
+}
+
+/* 편성표 없음 메시지 스타일 */
+.no-schedule-message {
+  padding: 20px 16px;
+  text-align: center;
+}
+
+/* 섹션 제목 스타일 */
+.main-section-title {
+  margin-top: 16px;
+  font-size: 17px;
+  color: #333333;
+  margin-bottom: 16px;
+}
+
+.no-schedule-date {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.no-schedule-text {
+  font-size: 16px;
+  color: #666666;
+  text-align: left;
+}
+
+.broadcast-status {
+  padding: 6px 12px;
+  background-color: #ff4757;
+  color: #ffffff;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* 방송 중 섹션 */
+.schedule-section.on-air {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 상품 카드들 */
+.main-product-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.main-product-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 10px;
+}
+
+.main-product-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.main-card-layout {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-direction: row;
+}
+
+.main-status-info {
+  position: relative;
+  min-width: 80px;
+  margin-top: -16px;
+}
+
+.main-status-info .broadcast-status {
+  background-color: #ff4757;
+  color: #ffffff;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  text-align: center;
+  z-index: 2;
+}
+
+.main-status-info .broadcast-status.scheduled {
+  background-color: #6c757d;
+}
+
+.main-product-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.main-product-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.main-price-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 하단 정보 컨테이너 (가격 + 오른쪽 정보) */
+.main-bottom-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
+/* 오른쪽 정보 컨테이너 (하트 + 방송상태) */
+.main-right-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.main-discount {
+  color: #FA5F8C;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.main-price {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333333;
+}
+
+/* 하트 아이콘 스타일 */
+.main-heart-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.main-heart-icon:hover {
+  transform: scale(1.1);
+}
+
+.main-heart-icon:active {
+  transform: scale(0.95);
+}
+
+/* 하트 아이콘 애니메이션 */
+@keyframes heartBeat {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+.main-heart-icon.liked {
+  animation: heartBeat 0.6s ease-in-out;
+}
+
+/* 방송상태 스타일 */
+.main-status-text {
+  background-color: #95a5a6;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.main-status-text.scheduled {
+  background-color: #95a5a6;
+}
+
+.main-status-text.on-air {
+  background-color: #ff4757;
+}
+
+.main-status-text.ended {
+  background-color: #7f8c8d;
+}
+
+.main-brand-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.main-brand-logo {
+  width: 70px;
+  height: 41px;
+}
+
+.main-brand-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.main-channel {
+  font-size: 14px;
+  color: #666666;
+}
+
+.main-channel-status-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.main-product-name {
+  font-size: 16px;
+  color: #2f3542;
+  line-height: 1.4;
+}
+
+.main-product-image-container {
+  position: relative;
+  width: 141px;
+  height: 141px;
+  flex-shrink: 0;
+}
+
+.main-time-display {
+  margin-top: 15px;
+  color: #666666;
+  font-size: 17px;
+  text-align: left;
+  margin-bottom: 8px;
+  white-space: nowrap;
+  font-weight: bold;
+}
+
+.main-product-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.main-product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.main-product-image .image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  color: #999;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 8px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .main-page {
+    padding: 0 0 80px 0;
+  }
+  
+  .main-schedule-content {
+    margin-top: 16px;
+    overflow-y: scroll;
+    height: calc(100vh - 200px);
+    padding-bottom: 16px;
+  }
+  
+  .schedule-header-info {
+    /* margin: 0 16px 16px 16px; */
+    /* padding: 12px; */
+  }
+  
+  .schedule-section.on-air {
+    margin: 0 16px 16px 16px;
+    padding: 16px;
+  }
+  
+  .main-product-card {
+    padding: 12px;
+  }
+  
+  .main-card-layout {
+    gap: 12px;
+  }
+  
+  .main-product-image-container {
+    width: 141px;
+    height: 141px;
+  }
+  
+  .main-product-image {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .main-product-name {
+    font-size: 14px;
+  }
+  
+  .main-price {
+    font-size: 13px;
+  }
+  
+  .main-bottom-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .main-right-info {
+    align-self: flex-end;
+  }
+}
+
+/* UpBtn 스타일 */
+.main-page .up-btn {
+  position: fixed;
+  bottom: 100px; /* BottomNav 위에 위치 */
+  right: 750px;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}

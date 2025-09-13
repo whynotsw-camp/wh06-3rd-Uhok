@@ -1,0 +1,29 @@
+/* 마이페이지 전용 Header Nav 내용 배치 (틀은 HeaderNavFrame) */
+.hn-mypage-left,
+.hn-mypage-right {
+  display: flex;
+  align-items: center;
+}
+
+.hn-mypage-left {
+  gap: 20px; /* 뒤로가기와 타이틀 간격 - 다른 헤더와 일관 */
+}
+
+.mypage-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.hn-mypage-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hn-mypage-right {
+  /* gap: 3px; 벨과 장바구니 간격 */
+  justify-content: center; /* 중앙 정렬 */
+  padding-top: 7px;
+}

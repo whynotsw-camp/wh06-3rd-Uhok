@@ -1,0 +1,57 @@
+# Node.js
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 빌드 결과물
+build
+dist
+
+# 개발 환경 파일
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE 및 에디터
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS 생성 파일
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Git
+.git
+.gitignore
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose*.yml
+
+# 문서
+README.md
+*.md
+docs/
+
+# 테스트
+coverage
+.nyc_output
+
+# 로그
+logs
+*.log
+
+# 임시 파일
+tmp
+temp

@@ -1,0 +1,18 @@
+/* ===== 편성표 헤더 네비게이션 스타일 ===== */
+
+.hn-schedule-left {
+  display: flex;
+  align-items: center;
+}
+
+.hn-schedule-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.hn-schedule-right {
+  display: flex;
+  align-items: center;
+}

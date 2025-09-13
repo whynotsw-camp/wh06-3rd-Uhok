@@ -1,0 +1,30 @@
+/* 공용 벨 아이콘 버튼 스타일 */
+.hn-bell-btn {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  padding-bottom: 3px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;                 /* 기본 포커스 박스 제거 */
+  -webkit-tap-highlight-color: transparent; /* 모바일 탭 하이라이트 제거 */
+}
+
+.hn-bell-btn:hover,
+.hn-bell-btn:active,
+.hn-bell-btn:focus,
+.hn-bell-btn:focus-visible {
+  background: transparent;      /* 호버/포커스 배경 제거 */
+  outline: none;                /* 포커스 외곽선 제거 */
+  box-shadow: none;             /* 브라우저 기본 그림자 제거 */
+}
+
+.hn-bell-svg {
+  display: block;
+  color: #111; /* stroke color */
+}
+
+

@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+/* 기존 App 스타일 유지 */
+.App {
+  background-color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 100vh;
+  max-width: 480px;
+  min-height: 982px;
+  padding: 16px;
+  box-sizing: border-box;
+}
+

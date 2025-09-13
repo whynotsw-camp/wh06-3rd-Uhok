@@ -1,0 +1,443 @@
+/* 식재료 기반 상품 추천 섹션 */
+.product-recommendations-section {
+  margin-bottom: 32px;
+}
+
+.recommendations-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* 기존 재료 목록에서 클릭 가능한 영역 */
+.ingredient-clickable-area {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 0px 0px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  /* 보유 재료와 동일한 높이와 정렬을 위해 */
+  min-height: 24px;
+  align-items: center;
+}
+
+.ingredient-clickable-area:hover {
+  background-color: rgba(250, 95, 140, 0.1);
+  transform: translateY(-1px);
+}
+
+/* 보유 재료의 정적 영역 (클릭 불가능) */
+.ingredient-static-area {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0px 0px;
+  /* 클릭 가능한 영역과 동일한 높이와 정렬을 위해 */
+  min-height: 24px;
+  align-items: center;
+}
+
+/* 토글되는 상품 추천 섹션 */
+.ingredient-recommendation-toggle {
+  margin: 8px 0 16px 0;
+  width: 100%;
+}
+
+/* 상품 추천 제목 */
+.recommendation-title {
+  font-size: 16px;
+  font-weight: 400; /* 기본 글씨체로 변경 */
+  color: #000000;
+  margin: 0 0 1px 0;
+  text-align: left;
+}
+
+/* 제목에서 볼드 처리할 부분 */
+.recommendation-title .bold-text {
+  font-size: 20px;
+  font-weight: 600; /* 콕과 홈쇼핑만 볼드 */
+}
+
+/* 단위 정보 스타일 */
+.recommendation-title .ingredient-unit-info {
+  font-size: 14px;
+  font-weight: 400;
+  color: #666;
+  margin-left: 4px;
+}
+
+.ingredient-products-section {
+  width: 437px;
+  max-width: 100%;
+  padding: 6px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  margin: 0 auto;
+}
+
+/* 상품 카드 캐러셀 */
+.products-carousel {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 8px 0;
+}
+
+.products-carousel::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.products-carousel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.products-carousel::-webkit-scrollbar-thumb {
+  background: #e0e0e0;
+  border-radius: 4px;
+}
+
+/* 상품 카드 */
+.product-card {
+  width: 150px !important; /* 고정 너비 강제 적용 */
+  height: auto !important; /* 높이 자동 조정 */
+  background-color: #ffffff !important;
+  border-radius: 8px !important;
+  border: 1px solid #e9ecef !important;
+  overflow: hidden !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  flex-shrink: 0 !important;
+  margin: 0 !important; /* 마진 제거 */
+  padding: 0 !important; /* 패딩 제거 */
+  display: flex !important; /* 플렉스 컨테이너 */
+  flex-direction: column !important; /* 세로 방향 */
+  align-items: stretch !important; /* 자식 요소들이 카드 너비에 맞춤 */
+}
+
+.product-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* 클릭 가능한 상품 카드 */
+.product-card.clickable {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.product-card.clickable:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  border-color: #FA5F8C;
+}
+
+.product-card.clickable:active {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* 상품 이미지 */
+.product-image {
+  width: 150px !important; /* product-card와 동일한 고정 너비 강제 적용 */
+  height: 120px !important; /* 고정 높이 */
+  overflow: hidden !important;
+  margin: 0 !important; /* 마진 제거 */
+  padding: 0 !important; /* 패딩 제거 */
+  flex-shrink: 0 !important; /* 크기 고정 */
+  display: block !important; /* 블록 요소 */
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.05);
+}
+
+/* 상품 정보 - 식재료 추천 섹션에서만 적용 */
+.ingredient-products-section .product-info {
+  padding: 4px !important;
+  width: 150px !important; /* 카드와 동일한 너비 강제 적용 */
+  box-sizing: border-box !important;
+  max-width: 150px !important; /* 최대 너비 제한 */
+  margin: 0 !important; /* 마진 제거 */
+  flex: 1 !important; /* 남은 공간 차지 */
+  display: flex !important; /* 플렉스 컨테이너 */
+  flex-direction: column !important; /* 세로 방향 */
+  justify-content: space-between !important; /* 세로 정렬 */
+}
+
+.product-name {
+  font-size: 13px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+/* 브랜드명 스타일 */
+.product-brand {
+  font-size: 11px;
+  font-weight: 500;
+  color: #666666;
+  line-height: 1.2;
+  margin-bottom: 6px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-source {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0; /* 로고 크기 고정 */
+}
+
+/* 콕 로고 이미지 스타일 */
+.product-source .source-logo {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+/* 홈쇼핑 로고만 다른 크기로 설정 */
+.product-source .source-logo[alt*="홈쇼핑"],
+.product-source .source-logo[alt*="GS샵"],
+.product-source .source-logo[alt*="롯데홈쇼핑"],
+.product-source .source-logo[alt*="현대홈쇼핑"],
+.product-source .source-logo[alt*="NS홈쇼핑"],
+.product-source .source-logo[alt*="CJ온스타일"],
+.product-source .source-logo[alt*="공영쇼핑"],
+.product-source .source-logo[alt*="신세계쇼핑"],
+.product-source .source-logo[alt*="SK스토아"],
+.product-source .source-logo[alt*="W쇼핑"],
+.product-source .source-logo[alt*="홈앤쇼핑"],
+.product-source .source-logo[alt*="KT알파쇼핑"],
+.product-source .source-logo[alt*="플러스샵"],
+.product-source .source-logo[alt*="공영쇼핑"],
+.product-source .source-logo[alt*="쇼핑엔터"] {
+  width: 45px;
+  height: 24px;
+}
+
+/* 일반 텍스트 소스 스타일 */
+.product-source .source-text {
+  font-size: 10px;
+  color: #999;
+}
+
+/* 가격 섹션 */
+.product-price-section {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+/* 홈쇼핑 상품의 가격 섹션 - 두 줄로 분리 */
+.product-card[data-source="homeshopping"] .product-price-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  align-items: flex-start;
+}
+
+/* 홈쇼핑 상품의 가격 컨테이너 - 세로 배치 */
+.homeshopping-price-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+/* 홈쇼핑 상품의 로고 스타일 */
+.product-card[data-source="homeshopping"] .product-source {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* 홈쇼핑 상품의 가격 컨테이너 스타일 */
+.product-card[data-source="homeshopping"] .homeshopping-price-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  flex-direction: row;
+}
+
+/* 홈쇼핑 상품의 할인율 스타일 */
+.product-card[data-source="homeshopping"] .homeshopping-price-container .discount-rate {
+  /* font-size: 8px !important; */
+  font-weight: 600 !important;
+  color: #FA5F8C !important;
+  text-align: left;
+}
+
+/* 홈쇼핑 상품의 가격 스타일 */
+.product-card[data-source="homeshopping"] .homeshopping-price-container .product-price {
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000;
+  display: block;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.product-price {
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000;
+  white-space: nowrap;
+}
+
+/* 할인율 - 식재료 추천 섹션에서만 적용 */
+.ingredient-products-section .product-info .discount-rate {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  color: #FF4444 !important;
+  background: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* 리뷰 정보 */
+.product-review-info {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.review-score {
+  font-size: 11px;
+  font-weight: 600;
+  color: #FA5F8C;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.review-count {
+  font-size: 10px;
+  color: #999;
+}
+
+/* 로딩 및 에러 메시지 */
+.loading-products,
+.error-message,
+.no-products {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+  font-size: 14px;
+}
+
+.error-message {
+  color: #dc3545;
+}
+
+.no-products {
+  color: #999;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+  .products-carousel {
+    gap: 10px;
+  }
+  
+  .product-card {
+    width: 130px !important; /* 모바일에서도 고정 너비 강제 적용 */
+  }
+  
+  .product-image {
+    width: 130px !important; /* 모바일에서도 product-card와 동일한 고정 너비 강제 적용 */
+    height: 100px !important;
+  }
+  
+  /* 식재료 추천 섹션의 product-info만 적용되도록 더 구체적인 선택자 사용 */
+  .ingredient-products-section .product-info {
+    width: 130px !important; /* 모바일에서도 카드와 동일한 너비 강제 적용 */
+    max-width: 130px !important;
+    padding: 10px;
+  }
+  
+  .product-name {
+    font-size: 12px;
+  }
+  
+  .product-brand {
+    font-size: 10px;
+  }
+  
+  .product-price-section {
+    gap: 4px;
+  }
+  
+  /* 모바일에서 홈쇼핑 상품의 가격 섹션 */
+  .product-card[data-source="homeshopping"] .product-price-section {
+    gap: 2px;
+  }
+  
+  .product-price {
+    font-size: 13px;
+    white-space: nowrap;
+  }
+  
+  .ingredient-products-section .product-info .discount-rate {
+    font-size: 12px !important;
+  }
+  
+  /* 모바일에서 홈쇼핑 상품의 할인율 */
+  .product-card[data-source="homeshopping"] .homeshopping-price-container .discount-rate {
+    font-size: 7px !important;
+  }
+  
+  /* 모바일에서 홈쇼핑 상품의 가격 */
+  .product-card[data-source="homeshopping"] .homeshopping-price-container .product-price {
+    font-size: 13px;
+    white-space: nowrap;
+  }
+  
+  .review-score {
+    font-size: 10px;
+  }
+  
+  .review-count {
+    font-size: 9px;
+  }
+  
+  /* 모바일에서 홈쇼핑 로고 크기 조정 */
+  .product-source .source-logo[alt*="홈쇼핑"],
+  .product-source .source-logo[alt*="GS샵"],
+  .product-source .source-logo[alt*="롯데홈쇼핑"],
+  .product-source .source-logo[alt*="현대홈쇼핑"],
+  .product-source .source-logo[alt*="NS홈쇼핑"],
+  .product-source .source-logo[alt*="CJ온스타일"],
+  .product-source .source-logo[alt*="공영쇼핑"],
+  .product-source .source-logo[alt*="신세계쇼핑"],
+  .product-source .source-logo[alt*="SK스토아"],
+  .product-source .source-logo[alt*="W쇼핑"],
+  .product-source .source-logo[alt*="홈앤쇼핑"],
+  .product-source .source-logo[alt*="KT알파쇼핑"],
+  .product-source .source-logo[alt*="플러스샵"],
+  .product-source .source-logo[alt*="공영쇼핑"],
+  .product-source .source-logo[alt*="쇼핑엔터"] {
+    width: 45px;
+    height: 22px;
+  }
+}

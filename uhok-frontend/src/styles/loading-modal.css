@@ -1,0 +1,285 @@
+/* 로딩 모달 오버레이 */
+.loading-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* 로딩 모달 컨텐츠 */
+.loading-modal-content {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 15px 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  animation: slideIn 0.3s ease-out;
+  min-width: 320px;
+  max-width: 400px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 로딩 모달 내부의 로딩 컨테이너 높이 조정 */
+.loading-modal-content .loading-container {
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.loading-modal-content .cute-loading-animation {
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 로딩 모달 내부의 로딩 애니메이션 스타일 */
+.loading-modal-content .loading-dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.loading-modal-content .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #ff6b9d, #ff8e53);
+  animation: bounce 1.4s ease-in-out infinite both;
+}
+
+.loading-modal-content .dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.loading-modal-content .dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+.loading-modal-content .dot:nth-child(3) {
+  animation-delay: 0s;
+}
+
+.loading-modal-content .loading-text {
+  font-size: 16px;
+  color: #666;
+  font-weight: 500;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* 페이드인 애니메이션 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 슬라이드인 애니메이션 */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 로딩 애니메이션 키프레임 */
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+  .loading-modal-content {
+    padding: 12px 32px;
+    min-width: 280px;
+    max-width: 320px;
+    margin: 0 20px;
+  }
+  
+  .loading-modal-content .loading-container {
+    padding: 10px 20px;
+  }
+  
+  .loading-modal-content .cute-loading-animation {
+    gap: 6px;
+  }
+}
+
+/* ===== 알림 모달 스타일 ===== */
+.alert-modal-message {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.5;
+  margin-bottom: 24px;
+  word-break: keep-all;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.alert-modal-message .sub-message {
+  display: block;
+  font-size: 14px;
+  color: #999;
+  margin-top: 8px;
+  font-weight: 400;
+}
+
+.alert-modal-button {
+  background: #FA5F8C;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 91px;
+  height: 44px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alert-modal-button:hover {
+  background: #e04a7a;
+  transform: translateY(-1px);
+}
+
+.alert-modal-button:active {
+  transform: translateY(0);
+}
+
+/* ===== 확인 모달 스타일 ===== */
+.confirm-modal-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.alert-modal-button.cancel {
+  background: #6c757d;
+}
+
+.alert-modal-button.cancel:hover {
+  background: #5a6268;
+}
+
+.alert-modal-button.confirm {
+  background: #FA5F8C;
+}
+
+.alert-modal-button.confirm:hover {
+  background: #e04a7a;
+}
+
+/* ===== 다양한 알림 버튼 스타일 ===== */
+.alert-modal-button.primary {
+  background: #FA5F8C;
+}
+
+.alert-modal-button.primary:hover {
+  background: #e04a7a;
+}
+
+.alert-modal-button.success {
+  background: #10b981;
+}
+
+.alert-modal-button.success:hover {
+  background: #059669;
+}
+
+.alert-modal-button.warning {
+  background: #f59e0b;
+}
+
+.alert-modal-button.warning:hover {
+  background: #d97706;
+}
+
+.alert-modal-button.info {
+  background: #3b82f6;
+}
+
+.alert-modal-button.info:hover {
+  background: #2563eb;
+}
+
+.alert-modal-button.secondary {
+  background: #6c757d;
+}
+
+.alert-modal-button.secondary:hover {
+  background: #5a6268;
+}
+
+/* 알림/확인 모달일 때 높이 조정 */
+.loading-modal-content:has(.alert-modal-message) {
+  height: auto;
+  min-height: 160px;
+  padding: 32px 40px;
+}
+
+/* 모바일에서 알림/확인 모달 높이 조정 */
+@media (max-width: 768px) {
+  .loading-modal-content:has(.alert-modal-message) {
+    padding: 24px 32px;
+    min-height: 140px;
+  }
+  
+  .alert-modal-message {
+    font-size: 15px;
+    margin-bottom: 20px;
+    padding: 0 16px;
+  }
+  
+  .alert-modal-button {
+    padding: 10px 24px;
+    font-size: 15px;
+    min-width: 80px;
+  }
+  
+  .confirm-modal-buttons {
+    gap: 10px;
+  }
+}

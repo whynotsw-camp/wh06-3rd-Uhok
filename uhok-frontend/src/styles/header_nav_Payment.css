@@ -1,0 +1,29 @@
+/* 주문 결제 페이지 전용 Header Nav 속성값 설정 */
+.hn-payment-left,
+.hn-payment-right {
+  display: flex;
+  align-items: center;
+}
+
+.hn-payment-left {
+  gap: 20px; /* 뒤로가기와 타이틀 간격 - 다른 헤더와 일관 */
+}
+
+.payment-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.hn-payment-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hn-payment-right {
+  gap: 3px; /* 우측 간격 */
+  justify-content: center; /* 중앙 정렬 */
+  padding-top: 7px;
+}

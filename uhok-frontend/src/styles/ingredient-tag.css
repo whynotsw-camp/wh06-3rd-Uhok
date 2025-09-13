@@ -1,0 +1,124 @@
+/* 독립적인 Ingredient Tag 스타일 */
+.ingredient-tag {
+  padding-right: 13px;
+  padding-left: 12px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+
+  display: inline-flex;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  margin: 0px 3px;
+  gap: 6px;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1;
+  white-space: nowrap;
+  max-width: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* X 버튼에 마우스를 올렸을 때 태그 전체에 효과 적용 */
+.ingredient-tag.x-button-hover {
+  background-color: #f5f5f5;
+  border-color: #d0d0d0;
+  transform: scale(1.02);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.ingredient-tag .ingredient-name {
+  font-size: 13px;
+  font-weight: 400;
+  color: #333;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  user-select: none;
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+}
+
+.ingredient-tag .remove-ingredient-btn {
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0;
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-left: 2px;
+  font-weight: bold;
+}
+
+.ingredient-tag .remove-ingredient-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 68, 68, 0.3);
+}
+
+/* 재료 태그 컨테이너 */
+.ingredients-tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0px;
+  min-height: 32px;
+  padding: 8px 0px;
+  border-radius: 8px;
+}
+
+/* 빈 상태일 때 - 메시지 제거 */
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .ingredient-tag {
+    height: 28px;
+    max-height: 32px;
+    max-width: 150px;
+    padding: 9px 10px;
+    font-size: 10px;
+  }
+  
+  .ingredient-tag .ingredient-name {
+    font-size: 14px;
+    line-height: 1.2;
+  }
+  
+  .ingredient-tag .remove-ingredient-btn {
+    width: 10px;
+    height: 10px;
+    font-size: 16px;
+  }
+}
+
+/* 다크 모드 지원 */
+@media (prefers-color-scheme: dark) {
+  .ingredient-tag {
+    background-color: #2d2d2d;
+    border-color: #444;
+    color: #e0e0e0;
+  }
+  
+  .ingredient-tag .ingredient-name {
+    color: #e0e0e0;
+  }
+  
+  .ingredient-tag.x-button-hover {
+    background-color: #3d3d3d;
+    border-color: #555;
+  }
+  
+  .ingredients-tags-container {
+    background-color: #1a1a1a;
+    border-color: #333;
+  }
+}

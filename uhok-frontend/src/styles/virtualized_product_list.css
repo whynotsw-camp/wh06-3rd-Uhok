@@ -1,0 +1,80 @@
+/* 가상화된 상품 리스트 스타일 */
+.virtualized-container {
+  position: relative;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc #f5f5f5;
+}
+
+.virtualized-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.virtualized-container::-webkit-scrollbar-track {
+  background: #f5f5f5;
+  border-radius: 3px;
+}
+
+.virtualized-container::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+.virtualized-container::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+.virtualized-content {
+  position: relative;
+}
+
+.virtualized-items {
+  will-change: transform;
+}
+
+.virtualized-item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.loading-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #666;
+  font-size: 14px;
+}
+
+.loading-spinner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.loading-spinner::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .virtualized-item {
+    padding: 4px;
+  }
+  
+  .loading-indicator {
+    font-size: 12px;
+  }
+}

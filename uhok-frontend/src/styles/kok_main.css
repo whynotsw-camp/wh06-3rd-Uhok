@@ -1,0 +1,105 @@
+.kok-home-shopping-main {
+  min-height: 100vh;
+  background: #ffffff;
+  padding-bottom: 80px; /* BottomNav 높이만큼 패딩 */
+  overflow: hidden; /* 스크롤바 중복 방지 - 부모에서 스크롤 제거 */
+  position: relative; /* 스크롤바 위치 기준 */
+  width: 100%; /* 전체 너비 */
+  height: 100vh; /* 전체 뷰포트 높이 사용 */
+}
+
+/* Webkit 브라우저 스크롤바 스타일링 */
+.kok-home-shopping-main::-webkit-scrollbar {
+  width: 3px; /* 스크롤바 너비 */
+}
+
+.kok-home-shopping-main::-webkit-scrollbar-track {
+  background: transparent; /* 스크롤바 트랙 배경 */
+}
+
+.kok-home-shopping-main::-webkit-scrollbar-thumb {
+  background: #e0e0e0; /* 스크롤바 썸 색상 */
+  border-radius: 4px; /* 스크롤바 모서리 둥글게 */
+}
+
+.kok-home-shopping-main::-webkit-scrollbar-thumb:hover {
+  background: #bbb; /* 호버 시 스크롤바 색상 */
+}
+
+.kok-main-content {
+  padding-top: 8px;/* Header 높이만큼 상단 패딩 */
+  padding-right: 8px; /* 스크롤바 공간 확보 */
+  overflow-y: auto; /* 메인 콘텐츠에서만 세로 스크롤 활성화 */
+  overflow-x: hidden; /* 가로 스크롤바 제거 */
+  height: calc(100vh - 190px); /* 헤더 + 바텀네비 + 패딩 고려 (더 여유롭게) */
+  max-height: calc(100vh - 190px); /* 헤더 + 바텀네비 + 패딩 고려 (더 여유롭게) */
+}
+
+/* Webkit 브라우저 스크롤바 스타일링 - 메인 콘텐츠용 */
+.kok-main-content::-webkit-scrollbar {
+  width: 3px; /* 스크롤바 너비 */
+}
+
+.kok-main-content::-webkit-scrollbar-track {
+  background: transparent; /* 스크롤바 트랙 배경 */
+}
+
+.kok-main-content::-webkit-scrollbar-thumb {
+  background: #e0e0e0; /* 스크롤바 썸 색상 */
+  border-radius: 4px; /* 스크롤바 모서리 둥글게 */
+}
+
+.kok-main-content::-webkit-scrollbar-thumb:hover {
+  background: #bbb; /* 호버 시 스크롤바 색상 */
+}
+
+/* 섹션 내부 스크롤 방지 */
+.kok-product-section {
+  overflow-x: hidden; /* 섹션 레벨에서 가로 스크롤 방지 */
+}
+
+/* 그리드 컨테이너만 가로 스크롤 허용 */
+.kok-products-container.kok-grid {
+  overflow-x: auto; /* 그리드 컨테이너만 가로 스크롤 허용 */
+  overflow-y: hidden;
+}
+
+/* 페이드인 애니메이션 */
+/* .kok-fade-in {
+  animation: kokFadeIn 0.5s ease-in;
+} */
+
+/* @keyframes kokFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} */
+
+/* 모바일 최적화 */
+@media (max-width: 768px) {
+  .kok-home-shopping-main {
+    padding-bottom: 70px;
+  }
+  
+  .kok-main-content {
+    padding-top: 5px; /* 모바일에서 바텀네비와의 간격 더 넉넉하게 */
+    height: calc(100vh - 185px); /* 모바일에서 높이 조정 (더 여유롭게) */
+    max-height: calc(100vh - 185px);
+  }
+  
+  /* 모바일에서 스크롤바 너비 조정 - 메인 콘텐츠용 */
+  /* 이미 3px로 통일되어 있으므로 제거 */
+  
+  .kok-product-section {
+    padding: 0 12px;
+  }
+  
+  .kok-section-title {
+    font-size: 21px;
+  }
+}

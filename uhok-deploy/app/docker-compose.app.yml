@@ -1,0 +1,57 @@
+services:
+
+  backend:
+    build:
+      context: ../../uhok-backend
+      dockerfile: Dockerfile
+    image: uhok-backend:2.0.2
+    env_file:
+      - .env
+    # extra_hosts:
+    #   # 🔒 ML EC2 프라이빗 IP를 내부 도메인으로 매핑
+    #   - "ml.internal:${ML_PRIVATE_IP}" # TODO: 프라이빗 IP 사용
+    #   - "host.docker.internal:host-gateway"
+    environment:
+      - PYTHONPATH=/app
+      - PYTHONUNBUFFERED=1
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      # # 🔑 ML 통신 설정 (프라이빗 IP 권장)
+      # - ML_BASE_URL=http://ml.internal:8001
+      # - SERVICE_AUTH_TOKEN=${SERVICE_AUTH_TOKEN}
+    ports:
+      - "9000:9000"
+    expose:
+      - "9000"
+    healthcheck:
+      # /healthz 없으면 /openapi.json 혹은 /docs 등으로 변경
+      test: ["CMD-SHELL", "python - <<'PY'\nimport urllib.request,sys\nu='http://localhost:9000/api/health'\ntry:\n  with urllib.request.urlopen(u, timeout=3) as r:\n    sys.exit(0 if r.status==200 else 1)\nexcept Exception:\n  sys.exit(1)\nPY"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+    networks: [uhok_net]
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options: { max-size: "50m", max-file: "3" }
+
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redis_data:/data
+    expose:
+      - "6379"     # 외부 포트 공개 금지
+    networks: [uhok_net]
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options: { max-size: "50m", max-file: "3" }
+    profiles: ["with-redis"]
+
+volumes:
+  redis_data:
+
+networks:
+  uhok_net:
+    external: true

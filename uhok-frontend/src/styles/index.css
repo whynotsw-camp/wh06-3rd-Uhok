@@ -1,0 +1,44 @@
+/* 전체 전역 스타일 */
+/* 모바일 환경에서 잘 보이도록 기본 설정 */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html, #root {
+  height: 100%;
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: #ffffff;  /* 전체 바탕 흰색 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden; /* 전체 스크롤 차단 */
+}
+
+/* 모바일 뷰포트 대응 */
+html {
+  font-size: 14px; /* 기준 폰트 크기 줄임 */
+}
+
+/* body 스크롤 제거 - home-shopping-main에서만 스크롤 처리 */
+body {
+  overflow: hidden; /* body 스크롤 차단 */
+}
+
+input, button {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* 모바일 최적화 */
+@media (max-width: 480px) {
+  html {
+    font-size: 13px; /* 더 작은 기준 폰트 크기 */
+  }
+}
+
+

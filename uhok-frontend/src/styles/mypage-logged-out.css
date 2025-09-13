@@ -1,0 +1,125 @@
+/* 로그인하지 않은 상태의 마이페이지 스타일 */
+
+/* 로그인하지 않은 상태의 유저 정보 카드 */
+.mypage-page.logged-out .user-info-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 로그인하지 않은 상태의 유저 정보 컨텐츠 */
+.mypage-page.logged-out .user-info-content {
+  display: flex !important;
+  align-items: center !important;
+  gap: 20px !important;
+}
+
+/* 로그인하지 않은 상태의 로그아웃 컨테이너 */
+.mypage-page.logged-out .logout-container {
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  margin-left: auto !important;
+}
+
+/* 로그인하지 않은 상태의 프로필 이미지 */
+.mypage-page.logged-out .profile-image {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+}
+
+.mypage-page.logged-out .profile-image img {
+  opacity: 1;
+  filter: none;
+}
+
+/* 로그인하지 않은 상태의 사용자 정보 */
+.mypage-page.logged-out .user-name {
+  color: #333 !important;
+  font-weight: 600 !important;
+}
+
+.mypage-page.logged-out .user-email {
+  color: #666 !important;
+}
+
+/* 로그인하지 않은 상태의 주문 내역 링크 */
+.mypage-page.logged-out .order-history-link {
+  background-color: transparent;
+  border-radius: 0;
+  opacity: 1;
+}
+
+.mypage-page.logged-out .order-history-text {
+  color: #333;
+}
+
+.mypage-page.logged-out .order-count {
+  color: #666;
+  font-style: normal;
+}
+
+/* 로그인하지 않은 상태의 최근 주문 섹션 */
+.mypage-page.logged-out .recent-orders-section {
+  opacity: 1;
+}
+
+.mypage-page.logged-out .section-title {
+  color: #333;
+}
+
+/* 로그인하지 않은 상태의 주문 없음 상태 */
+.mypage-page.logged-out .no-orders-state {
+  background-color: transparent;
+  border-radius: 0;
+  opacity: 1;
+}
+
+.mypage-page.logged-out .no-orders-message {
+  color: #666;
+}
+
+/* 로그인하지 않은 상태의 로그인 버튼 */
+.mypage-page.logged-out .login-button {
+  background: #ff6b9d;
+  box-shadow: 0 2px 4px rgba(255, 71, 87, 0.2);
+  font-weight: 550;
+  transform: none;
+  animation: none;
+}
+
+.mypage-page.logged-out .login-button:hover {
+  background: #ff558d;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(255, 71, 87, 0.3);
+}
+
+/* 로그인하지 않은 상태의 법적 고지사항 */
+.mypage-page.logged-out .legal-disclaimer {
+  background-color: transparent;
+  opacity: 1;
+}
+
+/* 로그인하지 않은 상태의 스크롤바 */
+.mypage-page.logged-out .mypage-content::-webkit-scrollbar-thumb {
+  background: #e0e0e0;
+}
+
+.mypage-page.logged-out .mypage-content::-webkit-scrollbar-thumb:hover {
+  background: #bbb;
+}
+
+/* 로그인하지 않은 상태의 반응형 디자인 */
+@media (max-width: 480px) {
+  .mypage-page.logged-out .user-info-card {
+    padding: 15px;
+  }
+  
+  .mypage-page.logged-out .login-button {
+    transform: none;
+  }
+  
+  .mypage-page.logged-out .login-button:hover {
+    transform: translateY(-1px);
+  }
+}

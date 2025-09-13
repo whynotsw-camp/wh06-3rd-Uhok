@@ -1,0 +1,1714 @@
+/* 홈쇼핑 상품 상세 페이지 스타일 - KokProductDetail과 동일 */
+.homeshopping-product-detail-page {
+  background-color: #fff;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative; /* UpBtn 위치 기준점 */
+  padding-bottom: 80px; /* BottomNav 높이만큼 여백 */
+}
+
+/* UpBtn 위치 관리 */
+.homeshopping-product-detail-page .up-btn {
+  position: absolute;
+  bottom: 40px;
+  right: 20px;
+}
+
+
+/* 로딩 컨테이너 */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  padding: 20px;
+}
+
+/* 에러 컨테이너 */
+.error-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  text-align: center;
+}
+
+.error-icon {
+  display: none;
+}
+
+.error-title {
+  font-size: 28px;
+  color: #000000;
+}
+
+.error-message {
+  display: none;
+}
+
+.retry-button {
+  display: none;
+}
+
+/* 상품이 없는 경우 */
+.no-product-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 20px;
+  text-align: center;
+  background: white;
+  border-radius: 16px;
+  margin: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.no-product-icon {
+  font-size: 64px;
+  margin-bottom: 20px;
+  opacity: 0.7;
+}
+
+.no-product-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 16px;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.no-product-message {
+  font-size: 18px;
+  color: #7f8c8d;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.back-button {
+  background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(149, 165, 166, 0.3);
+}
+
+.back-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(149, 165, 166, 0.4);
+}
+
+/* 상품 상세 컨테이너 */
+.product-detail-container {
+  width: 100%;
+  max-width: 480px;
+  overflow-y: scroll;
+  overflow-x: hidden; /* 가로 스크롤 방지 */
+  height: calc(100vh - 200px);
+}
+
+/* 상품 이미지 섹션 */
+.product-image-section {
+  position: relative;
+  /* margin-bottom: 32px; */
+  border-radius: 20px;
+  /* overflow: hidden; */
+  /* box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); */
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /* background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); */
+}
+
+/* 제품 이미지 래퍼 */
+.product-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 가운데 방송 상태 텍스트 오버레이 */
+.center-broadcast-status {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgb(255 255 255 / 70%);
+  color: rgb(0, 0, 0);
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 600;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); */
+}
+
+.center-status-text {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+  white-space: nowrap;
+}
+
+/* 독립적인 방송 정보 섹션 */
+.hsproduct-broadcast-info-section {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  /* border-bottom: 1px solid #e9ecef; */
+  gap: 95px;
+}
+
+/* 제품 정보 그룹 */
+.hsproduct-product-info-group {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+/* 찜 버튼 그룹 */
+.hsproduct-heart-button-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 브랜드 로고 */
+.hsproduct-brand-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hsproduct-homeshopping-logo {
+  /* width: 132px; */
+  height: 25px;
+  object-fit: contain;
+}
+
+/* 채널 번호 */
+.hsproduct-channel-number {
+  color: #737373;
+  font-size: 14px;
+  width: 59px;
+}
+
+
+
+/* 브랜드명 및 채널 정보 */
+.brand-channel-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.brand-name {
+  /* background: rgba(255, 255, 255, 0.9); */
+  padding: 8px 12px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-text {
+  font-size: 14px;
+  /* font-weight: 700; */
+  color: #000000;
+  text-align: center;
+  line-height: 1.2;
+  word-break: break-word;
+}
+
+.channel-info {
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+  /* font-weight: 600; */
+  /* text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); */
+}
+
+.channel-number {
+  /* background: rgba(255, 255, 255, 0.2); */
+  padding: 4px 8px;
+  border-radius: 12px;
+  /* backdrop-filter: blur(10px); */
+}
+
+/* 방송 날짜 */
+.hsproduct-broadcast-date {
+  color: #737373;
+  font-size: 14px;
+  font-weight: 600;
+  /* padding: 6px 12px; */
+  /* border-radius: 16px; */
+  text-align: center;
+  min-width: 47px;
+}
+
+/* 방송 시간 */
+.hsproduct-broadcast-time {
+  color: #737373;
+  font-size: 14px;
+  font-weight: 600;
+  /* padding: 6px 12px; */
+  /* border-radius: 16px; */
+  text-align: center;
+  min-width: 92px;
+}
+
+/* 찜 버튼 (방송 정보 섹션용) */
+.hsproduct-heart-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.hsproduct-heart-button .hsproduct-heart-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* 방송 날짜 및 시간 (기존 스타일 - 제거 예정) */
+.broadcast-datetime {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  text-align: right;
+  color: rgb(0, 0, 0);
+  z-index: 6;
+}
+
+.broadcast-date {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  /* text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6); */
+  padding: 8px 12px;
+  border-radius: 20px;
+  /* backdrop-filter: blur(10px); */
+}
+
+.broadcast-time {
+  font-size: 14px;
+  /* font-weight: 500; */
+  /* text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); */
+  /* background: rgba(0, 0, 0, 0.6); */
+  padding: 6px 10px;
+  border-radius: 16px;
+  /* backdrop-filter: blur(10px); */
+}
+
+.hsproduct-product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+/* .hsproduct-product-image:hover {
+  transform: scale(1.05);
+} */
+
+/* 이미지가 없을 때의 플레이스홀더 */
+.no-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+  color: #6c757d;
+  font-size: 16px;
+  font-weight: 500;
+  border: 2px dashed #dee2e6;
+  border-radius: 12px;
+}
+
+.no-overlay-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+  color: #6c757d;
+  font-size: 14px;
+  font-weight: 500;
+  border: 2px dashed #dee2e6;
+  border-radius: 16px;
+}
+
+/* 방송 상태 배지 */
+.hsproduct-broadcast-status {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  /* background: rgba(0, 0, 0, 0.8); */
+  color: white;
+  padding: 12px 20px;
+  border-radius: 50px;
+  font-size: 14px;
+  /* font-weight: 600; */
+  /* backdrop-filter: blur(10px); */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 7;
+}
+
+.hsproduct-broadcast-status.live {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  animation: livePulse 2s infinite;
+}
+
+@keyframes livePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); }
+  50% { box-shadow: 0 0 0 20px rgba(231, 76, 60, 0); }
+}
+
+.hsproduct-broadcast-status.upcoming {
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+}
+
+.hsproduct-broadcast-status.ended {
+}
+
+.status-icon {
+  font-size: 16px;
+}
+
+.status-text {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* 찜 버튼 */
+.like-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.like-button.liked {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+}
+
+.heart-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* 라이브 스트림 버튼 */
+.live-stream-button {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+}
+
+
+
+.live-stream-button:hover {
+  transform: translateX(-50%) translateY(-2px);
+  box-shadow: 0 12px 35px rgba(231, 76, 60, 0.5);
+}
+
+.live-stream-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: translateX(-50%);
+}
+
+.live-icon {
+  font-size: 18px;
+  animation: liveBlink 1.5s infinite;
+}
+
+@keyframes liveBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.3; }
+}
+
+/* 상품 기본 정보 */
+.product-basic-info {
+  /* background: white; */
+  padding: 0 4px; /* KokProductDetail과 동일한 패딩 */
+  /* border-radius: 20px; */
+  margin-bottom: 24px;
+  /* box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); */
+}
+
+.product-header {
+  margin-bottom: 24px;
+}
+
+.hsproduct-store-name {
+  /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+  color: rgb(0, 0, 0);
+  /* padding: 8px 16px; */
+  /* border-radius: 50px; */
+  font-size: 14px;
+  /* font-weight: 600; */
+  margin-bottom: 16px;
+  align-self: flex-start;
+}
+
+.hsproduct-product-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin: 0 0 12px 0;
+  line-height: 1.4;
+  /* width: 401px !important; KokProductDetail과 동일한 너비 */
+  word-wrap: break-word !important;
+  word-break: keep-all !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: unset !important;
+  height: auto !important;
+  min-height: auto !important;
+  max-height: none !important;
+  text-align: left !important;
+}
+
+.product-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* 가격 정보 */
+.hsproduct-price-section {
+  display: flex;
+  flex-direction: column;
+  /* gap: 12px; */
+}
+
+/* 정가 (첫번째 줄) */
+.hsproduct-original-price {
+  margin-bottom: 2px;
+}
+
+.hsproduct-original-price-text {
+  font-size: 16px;
+  color: #999;
+  text-decoration: line-through;
+}
+
+/* 할인율과 할인가격 (두번째 줄) */
+.hsproduct-discount-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hsproduct-discount-rate {
+  font-size: 20px;
+  color: #FA5F8C;
+  font-weight: bold;
+}
+
+.hsproduct-discounted-price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 할인이 없는 경우 */
+.hsproduct-no-discount-price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 할인 없음 텍스트 */
+.hsproduct-no-discount {
+  font-size: 12px;
+  color: #6c757d;
+  background-color: #f8f9fa;
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+/* 할인 없는 경우의 가격 (정상 가격) */
+.discount-price-normal {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.original-price {
+  font-size: 24px;
+  color: #95a5a6;
+  text-decoration: line-through;
+  font-weight: 500;
+}
+
+.discount-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.discount-rate {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.discounted-price {
+  font-size: 36px;
+  font-weight: 700;
+  color: #2c3e50;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.no-discount-price {
+  font-size: 36px;
+  font-weight: 700;
+  color: #2c3e50;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* 탭 네비게이션 */
+.tab-navigation {
+  display: flex;
+  background: white;
+  padding: 8px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  gap: 8px;
+}
+
+.tab-button {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 16px 24px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #7f8c8d;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.tab-button:hover {
+  color: #2c3e50;
+  /* background: rgba(102, 126, 234, 0.1); */
+}
+
+.tab-button.active {
+  color: white;
+  /* box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3); */
+}
+
+/* 탭 콘텐츠 */
+.tab-content {
+  background: white;
+  border-radius: 20px;
+}
+
+/* 상품 정보 탭 */
+.product-info-tab {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+  position: relative;
+}
+/* 
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+} */
+
+/* 상품 상세 정보 */
+.detail-info-section {
+  background: #f8f9fa;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.detail-info-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.detail-info-item {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 16px;
+}
+
+.detail-value {
+  color: #7f8c8d;
+  font-size: 16px;
+  text-align: right;
+  max-width: 60%;
+}
+
+/* 상품 이미지 갤러리 */
+.image-gallery-section {
+  background: #f8f9fa;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.image-group {
+  display: grid;
+  gap: 8px;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* 상세 정보가 없는 경우 */
+.no-detail-info {
+  text-align: center;
+  padding: 60px 20px;
+  color: #7f8c8d;
+}
+
+.no-detail-icon {
+  font-size: 64px;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.no-detail-text {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* 방송 정보 탭 */
+.broadcast-info-tab {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.broadcast-details {
+  background: #f8f9fa;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.broadcast-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.broadcast-item:last-child {
+  border-bottom: none;
+}
+
+.broadcast-label {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 16px;
+}
+
+.broadcast-value {
+  color: #7f8c8d;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* 라이브 스트림 정보 */
+.live-stream-info {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px;
+  padding: 24px;
+  color: white;
+}
+
+.live-stream-info .section-title {
+  color: white;
+}
+
+.live-stream-info .section-title::after {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.stream-details {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.stream-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+}
+
+.stream-label {
+  font-weight: 600;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+.stream-status {
+  font-weight: 600;
+  font-size: 16px;
+  padding: 8px 16px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.stream-status.live {
+  background: rgba(231, 76, 60, 0.8);
+  animation: livePulse 2s infinite;
+}
+
+.stream-url-button {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.stream-url-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.stream-value {
+  font-weight: 500;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+/* 방송 상태 정보 */
+.broadcast-status-info {
+  background: #f8f9fa;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.status-display {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.stream-status-icon {
+  font-size: 24px;
+}
+
+.stream-status-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* 추천 탭 */
+.recommendations-tab {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.kok-recommendations-section {
+  background: #f8f9fa;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.kok-products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.kok-product-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.kok-product-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.kok-product-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+
+.kok-product-info {
+  padding: 20px;
+}
+
+.kok-product-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.kok-product-price {
+  font-size: 20px;
+  font-weight: 700;
+  color: #667eea;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* 추천이 없는 경우 */
+.no-recommendations {
+  text-align: center;
+  padding: 60px 20px;
+  color: #7f8c8d;
+}
+
+.no-recommendations-icon {
+  font-size: 64px;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.no-recommendations-text {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* 스크롤바 스타일 */
+.product-detail-container::-webkit-scrollbar {
+  width: 4px;
+}
+
+.product-detail-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.product-detail-container::-webkit-scrollbar-thumb {
+  background: #e0e0e0;
+  border-radius: 4px;
+}
+
+.product-detail-container::-webkit-scrollbar-thumb:hover {
+  background: #bbb;
+}
+
+/* Firefox 스크롤바 */
+.product-detail-container {
+  scrollbar-width: thin;
+  scrollbar-color: #e0e0e0 transparent;
+}
+
+/* 홈쇼핑 주문 모달 스타일 */
+.homeshopping-order-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  backdrop-filter: blur(4px);
+}
+
+.homeshopping-order-modal-content {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px 30px;
+  width: 400px;
+  max-width: 90vw;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.order-option {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+
+
+
+.order-option-icon {
+  width: 48px;
+  height: 48px;
+  background-color: #f5f5f5;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  flex-shrink: 0;
+}
+
+.order-option-text {
+  flex: 1;
+  color: #333;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.order-option-arrow {
+  color: #666;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+
+
+.order-modal-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: #f5f5f5;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #333;
+  transition: all 0.2s ease;
+}
+
+
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .product-detail-container {
+    padding: 16px;
+  }
+  
+  .product-basic-info {
+    padding: 24px;
+  }
+  
+  .tab-content {
+    padding: 24px;
+  }
+  
+  .homeshopping-order-modal-content {
+    width: 300px;
+    padding: 30px 20px;
+  }
+  
+  .order-option {
+    padding: 16px 0;
+  }
+  
+  .order-option-text {
+    font-size: 16px;
+  }
+  
+  .hsproduct-product-name {
+    font-size: 24px;
+  }
+  
+  .discounted-price,
+  .no-discount-price {
+    font-size: 28px;
+  }
+  
+  .tab-navigation {
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .tab-button {
+    padding: 14px 20px;
+  }
+  
+  .kok-products-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .image-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-basic-info {
+    padding: 20px;
+  }
+  
+  .tab-content {
+    padding: 20px;
+  }
+  
+  .hsproduct-broadcast-info-section {
+    flex-direction: column;
+    gap: 20px;
+    padding: 16px;
+  }
+  
+  .hsproduct-product-info-group {
+    gap: 8px;
+  }
+  
+  .hsproduct-homeshopping-logo {
+    height: 32px;
+  }
+  
+  .hsproduct-channel-number {
+    font-size: 12px;
+    width: 55px;
+  }
+  
+
+  
+  .hsproduct-broadcast-date {
+    font-size: 12px;
+    min-width: 42px;
+  }
+  
+  .hsproduct-broadcast-time {
+    font-size: 12px;
+    min-width: 87px;
+  }
+  
+  .hsproduct-heart-button {
+    padding: 6px;
+  }
+  
+  .hsproduct-heart-button .hsproduct-heart-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .broadcast-status {
+    top: 16px;
+    left: 16px;
+    padding: 10px 16px;
+    font-size: 12px;
+  }
+  
+  .like-button {
+    top: 16px;
+    right: 16px;
+    width: 48px;
+    height: 48px;
+  }
+  
+  .live-stream-button {
+    bottom: 16px;
+    padding: 14px 28px;
+    font-size: 14px;
+  }
+}
+
+/* 탭 네비게이션 스타일 - KokProductDetail과 동일 */
+.tab-navigation {
+  display: flex !important;
+  background-color: #ffffff !important;
+  border-bottom: 2px solid #e0e0e0 !important;
+  flex-shrink: 0 !important;
+  position: relative !important;
+  z-index: 10 !important;
+  width: 433px !important; /* KokProductDetail과 동일한 가로길이 */
+  min-height: 48px !important;
+  box-shadow: none !important;
+  margin: 0 auto !important; /* 중앙 정렬 */
+  padding: 0 !important;
+}
+
+.tab-button {
+  flex: 1 !important;
+  background: none !important;
+  border: none !important;
+  padding: 16px 8px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #666 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  position: relative !important;
+  min-height: 48px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  user-select: none !important;
+  margin: 0 !important;
+}
+
+.tab-button:hover {
+  color: #333 !important;
+  background-color: #ffffff !important;
+}
+
+.tab-button.active {
+  color: #333 !important;
+  font-weight: bold !important;
+  background-color: #ffffff !important;
+}
+
+.tab-button.active::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 3px !important;
+  background-color: #FA5F8C !important;
+  border-radius: 2px 2px 0 0 !important;
+}
+
+/* 탭 콘텐츠 */
+.tab-content {
+  flex: 1 !important;
+  overflow-y: auto !important;
+  background-color: #ffffff !important;
+  /* padding-bottom: 20px !important; */
+  position: relative !important;
+  z-index: 1 !important;
+  display: block !important;
+  width: 100% !important;
+}
+
+/* 상품 상세 탭 */
+.detail-tab {
+  padding: 0 !important;
+  animation: fadeIn 0.3s ease-in-out !important;
+  min-height: 100% !important;
+  display: block !important;
+  width: 100% !important;
+  background-color: #ffffff !important;
+  overflow-y: visible !important;
+}
+
+/* 판매자 정보 탭 */
+.seller-tab {
+  padding: 0 !important;
+  animation: fadeIn 0.3s ease-in-out !important;
+  min-height: 100% !important;
+  display: block !important;
+  width: 100% !important;
+  background-color: #ffffff !important;
+  overflow-y: visible !important;
+}
+
+/* 탭 콘텐츠 애니메이션 */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 상품 상세 이미지 섹션 */
+.product-detail-images-section {
+  margin-top: 24px;
+  /* margin-bottom: 24px; */
+}
+
+.product-detail-images-section .section-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.detail-images-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.detail-image-item {
+  width: 100%;
+  margin: 0;
+}
+
+.detail-image-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 0;
+  display: block;
+}
+
+/* 상품 상세 정보 섹션 */
+.product-detail-info-section {
+  margin-bottom: 24px;
+  padding: 0 4px; /* KokProductDetail과 동일한 패딩 */
+}
+
+.product-detail-info-section .section-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.detail-info-container {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.detail-info-row {
+  display: flex;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.detail-info-row:last-child {
+  border-bottom: none;
+}
+
+.detail-info-label {
+  background-color: #f8f9fa;
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #666;
+  font-weight: 500;
+  min-width: 120px;
+  flex-shrink: 0;
+  width: 30%;
+}
+
+.detail-info-value {
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #333;
+  flex: 1;
+  word-break: break-all;
+}
+
+/* 판매자 정보 섹션 */
+.seller-info-section {
+  margin-bottom: 24px;
+  padding: 0 4px; /* KokProductDetail과 동일한 패딩 */
+}
+
+.seller-info-section .section-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.seller-info-table,
+.product-details-table {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.seller-info-row,
+.product-detail-row {
+  display: flex;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.seller-info-row:last-child,
+.product-detail-row:last-child {
+  border-bottom: none;
+}
+
+.seller-info-label,
+.product-detail-label {
+  background-color: #f8f9fa;
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #666;
+  font-weight: 500;
+  min-width: 120px;
+  flex-shrink: 0;
+  width: 30%;
+}
+
+.seller-info-value,
+.product-detail-value {
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #333;
+  flex: 1;
+  word-break: break-all;
+}
+
+/* 상세 정보나 이미지가 없는 경우 */
+.no-detail-content {
+  text-align: center;
+  padding: 40px 4px; /* KokProductDetail과 동일한 패딩 */
+  color: #999;
+}
+
+/* 스크롤바 hover 스타일 - KokProductDetail과 동일 */
+.homeshopping-product-detail-page .product-content::-webkit-scrollbar {
+  width: 3px !important;
+}
+
+.homeshopping-product-detail-page .product-content::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+.homeshopping-product-detail-page .product-content::-webkit-scrollbar-thumb {
+  background: #e0e0e0 !important;
+  border-radius: 4px !important;
+}
+
+.homeshopping-product-detail-page .product-content::-webkit-scrollbar-thumb:hover {
+  background: #bbb !important;
+}
+
+/* Firefox 스크롤바 스타일 */
+.homeshopping-product-detail-page .product-content {
+  scrollbar-width: thin !important;
+  scrollbar-color: #e0e0e0 transparent !important;
+}
+
+/* 탭 콘텐츠 스크롤바 hover 스타일 */
+.homeshopping-product-detail-page .tab-content::-webkit-scrollbar {
+  width: 3px !important;
+}
+
+.homeshopping-product-detail-page .tab-content::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+.homeshopping-product-detail-page .tab-content::-webkit-scrollbar-thumb {
+  background: #e0e0e0 !important;
+  border-radius: 4px !important;
+}
+
+.homeshopping-product-detail-page .tab-content::-webkit-scrollbar-thumb:hover {
+  background: #bbb !important;
+}
+
+/* Firefox 탭 콘텐츠 스크롤바 스타일 */
+.homeshopping-product-detail-page .tab-content {
+  scrollbar-width: thin !important;
+  scrollbar-color: #e0e0e0 transparent !important;
+}
+
+.no-detail-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.no-detail-text {
+  font-size: 14px;
+  color: #666;
+}
+
+/* ===== 레시피 추천 섹션 ===== */
+.hs-recom-recipe-recommendation-section {
+  margin: 20px 0;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.hs-recom-recipe-section-content {
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hs-recom-recipe-section-content:hover {
+  background: transparent;
+}
+
+.hs-recom-recipe-section-content .hs-recom-recipe-kokrecom-toggle-section {
+  padding-left: 23px;
+  padding: 16px 20px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 66px; /* 콕 상품 추천과 동일한 높이 */
+}
+
+.hs-recom-recipe-section-content .hs-recom-recipe-kokrecom-toggle-section:hover {
+  background: transparent;
+}
+
+.hs-recom-recipe-section-text {
+  font-size: 15px;
+  color: #838383;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.hs-recom-recipe-section-icon {
+  width: 26px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+}
+
+.hs-recom-recipe-section-arrow {
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hs-recom-recipe-section-arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* 별점 컴포넌트 스타일 */
+.star-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.star-rating-stars {
+  display: flex;
+  gap: 2px;
+}
+
+.star-rating-stars .star-icon {
+  transition: transform 0.2s ease;
+}
+
+.star-rating-stars .star-icon:hover {
+  transform: scale(1.1);
+}
+
+.star-rating-score {
+  font-size: 12px;
+  color: #333;
+  font-weight: 600;
+}
+
+/* 레시피 미리보기 카드 스타일 */
+.hs-recom-recipe-preview {
+  padding: 0 20px 16px 20px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.hs-recom-recipe-preview-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.hs-recom-recipe-preview-content:hover {
+  background: #f0f0f0;
+  transform: translateY(-1px);
+}
+
+.hs-recom-recipe-preview-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.hs-recom-recipe-preview-title {
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+
+.hs-recom-recipe-preview-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hs-recom-recipe-preview-rating-text {
+  font-size: 12px;
+  color: #666;
+}
+
+.hs-recom-recipe-preview-arrow {
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+.hs-recom-recipe-preview-arrow svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* 비디오 플레이어 컨테이너 스타일 */
+.video-player-container {
+  width: 100%;
+  margin: 16px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.video-player-container video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.no-stream-container {
+  margin: 16px 0;
+  transition: all 0.3s ease;
+}
+
+.no-stream-container:hover {
+  background-color: #e9ecef !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}

@@ -1,0 +1,43 @@
+/* 위시리스트 페이지 전용 Header Nav 내용 배치 (틀은 HeaderNavFrame) */
+.hn-wishlist-left,
+.hn-wishlist-right {
+  display: flex;
+  align-items: center;
+}
+
+.hn-wishlist-left {
+  gap: 20px; /* 뒤로가기와 타이틀 간격 - 다른 헤더와 일관 */
+}
+
+.hn-wishlist-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hn-wishlist-right {
+  /* gap: 3px; 벨과 장바구니 간격 */
+  justify-content: center; /* 중앙 정렬 */
+  padding-top: 7px;
+}
+
+/* ===== 찜 목록 헤더 네비게이션 스타일 ===== */
+
+.hn-wishlist-left {
+  display: flex;
+  align-items: center;
+}
+
+.hn-wishlist-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.hn-wishlist-right {
+  display: flex;
+  align-items: center;
+  /* gap: 12px; */
+}

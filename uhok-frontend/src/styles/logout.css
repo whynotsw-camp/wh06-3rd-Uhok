@@ -1,0 +1,126 @@
+/* 로그아웃 컨테이너 스타일 */
+.logout-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-left: auto;
+}
+
+.logout-button {
+  background: #ff6b9d;
+  border: none;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 550;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+  min-width: 70px;
+  height: 32px;
+  box-shadow: 0 2px 4px rgba(255, 71, 87, 0.2);
+  /* 텍스트를 버튼 중앙에 배치 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.login-button {
+  background: #ff6b9d;
+  border: none;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 550;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+  min-width: 70px;
+  height: 32px;
+  box-shadow: 0 2px 4px rgba(76, 175, 80, 0.2);
+  /* 텍스트를 버튼 중앙에 배치 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.logout-button:hover {
+  background: #ff558d;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(255, 71, 87, 0.3);
+}
+
+.logout-button:active {
+  background: #ff6b9d;
+  transform: translateY(0);
+}
+
+.login-button:hover {
+  background: #ff558d;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
+}
+
+.login-button:active {
+  background: #ff558d;
+  transform: translateY(0);
+}
+
+/* 기존 로그아웃 섹션 스타일 (하단 배치용) */
+.logout-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  padding: 20px 0;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* 하단 배치용 로그아웃 버튼 스타일 */
+.logout-section .logout-button {
+  background: none;
+  border: none;
+  color: #666666;
+  font-size: 12px;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  text-decoration: underline;
+  min-width: 80px;
+  height: 36px;
+  box-shadow: none;
+}
+
+.logout-section .logout-button:hover {
+  color: #333333;
+  background-color: #f0f0f0;
+  transform: none;
+}
+
+.logout-section .logout-button:active {
+  color: #333333;
+  background-color: #e0e0e0;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 480px) {
+  .logout-button,
+  .login-button {
+    min-width: 60px;
+    height: 28px;
+    font-size: 11px;
+    padding: 6px 12px;
+  }
+  
+  .mypage-page.logged-out .login-button {
+    transform: scale(1.01);
+  }
+  
+  .mypage-page.logged-out .login-button:hover {
+    transform: scale(1.03);
+  }
+}

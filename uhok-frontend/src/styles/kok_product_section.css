@@ -1,0 +1,443 @@
+.kok-product-section {
+  margin-bottom: 24px;
+  padding: 0 16px; /* 좌우 패딩만 16px */
+  border-bottom: 1px solid #D9D9D9; /* 8픽셀 두께 분리선 추가 */
+}
+
+.kok-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0px;
+}
+
+.kok-section-title {
+  font-size: 21px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.kok-more-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+  color: #FA5F8C;
+  font-size: 16px;
+  font-weight: 500;
+  gap: 4px;
+}
+
+.kok-more-button:hover {
+  background-color: transparent;
+  color: #FA5F8C;
+  font-weight: 800;
+}
+
+.kok-arrow-image {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+/* 기존 hover 스타일 제거 - 새로운 hover 스타일로 대체됨 */
+
+.kok-arrow {
+  font-size: 16px;
+}
+
+.kok-arrow-icon {
+  color: #666;
+  font-size: 16px;
+}
+
+.kok-products-container {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 20px;
+  gap: px;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.kok-products-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* 기본 타입 (횡스크롤) */
+.kok-products-container.default {
+  gap: 12px;
+  scroll-snap-type: x mandatory;
+}
+
+.kok-products-container.default .kok-product-card {
+  scroll-snap-align: start;
+}
+
+/* 특별 타입 (횡스크롤) */
+.kok-products-container.special {
+  gap: 12px;
+  scroll-snap-type: x mandatory;
+}
+
+.kok-products-container.special .kok-product-card {
+  scroll-snap-align: start;
+}
+
+/* 그리드 타입 (2줄 표시, 횡스크롤) */
+.kok-products-container.grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 200px; /* 고정 너비로 열 생성 */
+  grid-template-rows: repeat(2, 1fr); /* 2줄 */
+  gap: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: none;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+  padding: 0 0 0px 0px; /* 왼쪽 패딩 추가 */
+  width: max-content;
+  max-width: 100%;
+  cursor: grab;
+}
+
+.kok-products-container.grid:active {
+  cursor: grabbing;
+}
+
+.kok-products-container.grid.dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+
+.kok-products-container.grid .kok-product-card {
+  scroll-snap-align: start;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: none;
+  width: 200px;
+  height: fit-content;
+}
+
+/* 고정 타입 (3개 고정) */
+.kok-products-container.fixed {
+  display: flex;
+  justify-content: space-between;
+  overflow: visible;
+  white-space: normal;
+  gap: 8px;
+  width: 100%;
+  max-width: 448px;
+}
+
+.kok-products-container.fixed .kok-product-card {
+  width: 141px !important;
+  height: 230px !important;
+  flex: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  background: white !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: none !important;
+  padding: 8px !important;
+  min-width: 141px !important;
+  max-width: 141px !important;
+}
+
+.kok-products-container.fixed .kok-product-card .kok-product-image-container {
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.kok-products-container.fixed .kok-product-card .kok-product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.kok-products-container.fixed .kok-product-card .kok-product-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.kok-products-container.fixed .kok-product-card .kok-product-name {
+  width: 125px;
+  height: auto; /* 자동 높이로 변경 */
+  min-height: 25px; /* 최소 높이만 설정 */
+  max-height: none; /* 최대 높이 제한 제거 */
+  font-size: 12px;
+  font-weight: 500;
+  color: #333;
+  margin: 0;
+  line-height: 1.2;
+  text-align: center;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* 2줄까지 표시 허용 */
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+  white-space: normal;
+}
+
+.kok-products-container.fixed .kok-product-card .kok-price-info {
+  width: 122px;
+  height: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+}
+
+.kok-products-container.fixed .kok-product-card .kok-discount-rate {
+  font-size: 15px; /* 13px에서 15px로 증가 */
+  font-weight: bold;
+  color: #FA5F8C;
+  background: transparent;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  display: inline;
+  box-shadow: none;
+  text-decoration: none;
+}
+
+.kok-products-container.fixed .kok-product-card .kok-discount-price {
+  font-size: 16px; /* 14px에서 16px로 증가 */
+  font-weight: bold;
+  color: #333;
+}
+
+.kok-products-container.fixed .kok-product-card .kok-discount-price::after {
+  content: "원";
+  font-size: 14px; /* 12px에서 14px로 증가 */
+  color: inherit;
+  font-weight: inherit;
+}
+
+.kok-products-container.fixed .kok-product-card .kok-rating-info {
+  width: 70px;
+  height: auto; /* 자동 높이로 변경 */
+  min-height: 16px; /* 최소 높이만 설정 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  margin-top: auto; /* 하단에 배치 */
+}
+
+.kok-products-container.fixed .kok-product-card .kok-stars {
+  font-size: 13px;
+  color: #FA5F8C;
+}
+
+.kok-products-container.fixed .kok-product-card .kok-review-count {
+  font-size: 11px;
+  color: #666;
+}
+
+/* 별점과 리뷰수를 한 줄로 강제 */
+.kok-products-container.fixed .kok-product-card .kok-product-rating {
+  white-space: nowrap; /* 한 줄로 강제 */
+  overflow: hidden; /* 넘치는 텍스트 숨김 */
+  text-overflow: ellipsis; /* 넘치는 텍스트를 ...으로 표시 */
+}
+
+/* 할인 특가 상품 전용 그리드 */
+.kok-products-container.discount-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 337px; /* 정확한 카드 너비 */
+  grid-template-rows: repeat(2, 1fr);
+  gap: 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: none;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+  padding: 0 0 20px 0px; /* 더 큰 왼쪽 패딩 */
+  width: max-content;
+  max-width: 100%;
+  cursor: grab;
+}
+
+.kok-products-container.discount-grid:active {
+  cursor: grabbing;
+}
+
+.kok-products-container.discount-grid .kok-product-card {
+  scroll-snap-align: start !important;
+  background: white !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  box-shadow: none !important;
+  width: 337px !important;
+  height: 140px !important; /* 120px에서 140px로 증가하여 리뷰 정보 공간 확보 */
+}
+
+/* 최근 구매 상품과 중복되지 않는 상품 전용 그리드 */
+.kok-products-container.non-duplicated-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 240px; /* 새로운 카드 너비 */
+  grid-template-rows: repeat(1,1fr);
+  gap: 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: none;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+  padding: 0 0 20px 0px; /* 왼쪽 패딩 조정 */
+  width: max-content;
+  max-width: 100%;
+  cursor: grab;
+}
+
+.kok-products-container.non-duplicated-grid:active {
+  cursor: grabbing;
+}
+
+.kok-products-container.non-duplicated-grid .kok-product-card {
+  scroll-snap-align: start !important;
+  background: white !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  box-shadow: none !important;
+  width: 240px !important;
+  height: 360px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 12px !important;
+}
+
+.kok-products-container.non-duplicated-grid .kok-product-card .kok-product-image-container {
+  width: 240px !important;
+  height: 240px !important;
+  flex-shrink: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-bottom: 12px !important;
+}
+
+.kok-products-container.non-duplicated-grid .kok-product-card .kok-product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.kok-products-container.non-duplicated-grid .kok-product-card .kok-product-info {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  flex: 1 !important;
+  justify-content: flex-start !important;
+}
+
+.kok-products-container.non-duplicated-grid .kok-product-card .kok-price-info {
+  width: 240px !important;
+  height: 21px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 6px !important;
+  margin: 0 !important;
+}
+
+.kok-products-container.non-duplicated-grid .kok-product-card .kok-discount-rate {
+  font-size: 16px;
+  font-weight: bold;
+  color: #FA5F8C;
+  background: transparent;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  display: inline;
+  box-shadow: none;
+  text-decoration: none;
+}
+
+.kok-products-container.non-duplicated-grid .kok-product-card .kok-discount-price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.kok-products-container.non-duplicated-grid .kok-product-card .kok-discount-price::after {
+  content: "원";
+  font-size: 14px;
+  color: inherit;
+  font-weight: inherit;
+}
+
+.kok-products-container.non-duplicated-grid .kok-product-card .kok-product-name {
+  width: 240px !important;
+  height: auto !important; /* 자동 높이로 변경 */
+  min-height: 30px !important; /* 최소 높이만 설정 */
+  max-height: 60px !important; /* 2줄 높이로 제한 */
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #333 !important;
+  margin: 0 !important;
+  line-height: 1.3 !important;
+  text-align: left !important;
+  overflow: hidden !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important; /* 2줄까지만 표시 */
+  -webkit-box-orient: vertical !important;
+  word-break: break-all !important;
+  white-space: normal !important;
+}
+
+.kok-products-container.non-duplicated-grid .kok-product-card .kok-rating-info {
+  width: 240px !important;
+  height: auto !important; /* 자동 높이로 변경 */
+  min-height: 20px !important; /* 최소 높이만 설정 */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 8px !important;
+  margin-top: auto !important; /* 하단에 배치 */
+  padding-top: 8px !important;
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 8px 0 0 0 !important;
+}
+
+.kok-products-container.non-duplicated-grid .kok-product-card .kok-stars {
+  font-size: 15px !important;
+  color: #FA5F8C !important;
+  font-weight: bold !important;
+  text-shadow: 0 1px 2px rgba(250, 95, 140, 0.2) !important;
+}
+
+.kok-products-container.non-duplicated-grid .kok-product-card .kok-review-count {
+  font-size: 11px !important;
+  color: #aaaaaa !important;
+  font-weight: 400 !important;
+}

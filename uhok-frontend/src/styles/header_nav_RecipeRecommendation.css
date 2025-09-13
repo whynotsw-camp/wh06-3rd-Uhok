@@ -1,0 +1,31 @@
+/* 레시피 추천 페이지 전용 Header Nav 내용 배치 (틀은 HeaderNavFrame) */
+.hn-recipe-left,
+.hn-recipe-right {
+  display: flex;
+  align-items: center;
+}
+
+.hn-recipe-left {
+  gap: 12px; /* 뒤로가기 버튼과 타이틀 간격 */
+  align-items: center;
+}
+
+.hn-recipe-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  white-space: nowrap;
+}
+
+.hn-recipe-right {
+  padding-top: 7px;
+  justify-content: center; /* 중앙 정렬 */
+}
+
+.hn-recipe-center {
+  flex: 1;
+  display: flex;
+  align-items: center;    /* 헤더 높이 기준 수직 중앙 */
+  justify-content: center;/* 수평 중앙 */
+  text-align: center;
+}

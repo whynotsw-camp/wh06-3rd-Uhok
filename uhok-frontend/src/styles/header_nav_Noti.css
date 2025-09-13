@@ -1,0 +1,29 @@
+/* 알림 페이지 전용 Header Nav 내용 배치 (틀은 HeaderNavFrame) */
+.hn-noti-left,
+.hn-noti-right {
+  display: flex;
+  align-items: center;
+}
+
+.hn-noti-left {
+  gap: 20px; /* 뒤로가기와 타이틀 간격 - 다른 헤더와 일관 */
+}
+
+.noti-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.hn-noti-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hn-noti-right {
+  gap: 3px; /* 장바구니 간격 */
+  justify-content: center; /* 중앙 정렬 */
+  padding-top: 7px;
+}

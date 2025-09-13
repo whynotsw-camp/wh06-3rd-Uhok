@@ -1,0 +1,23 @@
+/* 공용 Header Navigation 프레임 (틀) */
+.header-nav-frame {
+  /* 레이아웃 크기 */
+  width: 448px;
+  height: 93px;
+
+  /* 외곽 여백 (페이지와의 간격) */
+  margin: 0 auto; /* 수평 중앙 정렬 */
+
+  /* 내부 여백 (프레임 내부 여유) */
+  /* padding: 12px 16px; */
+  padding-right: 20px;
+
+  /* 박스 모델 보정 */
+  box-sizing: border-box;
+
+  /* 배치 (틀만 제공, 내용 정렬 최소화) */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+

@@ -1,0 +1,133 @@
+/* 무한 스크롤 로딩 상태 스타일 */
+.infinite-scroll-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  margin: 20px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.loading-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #FA5F8C;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+.loading-text {
+  text-align: center;
+  color: #333;
+}
+
+.loading-text > div:first-child {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #FA5F8C;
+}
+
+.loading-subtext {
+  font-size: 14px;
+  color: #666;
+  font-weight: 400;
+}
+
+/* 더 이상 로드할 상품이 없을 때 */
+.no-more-products {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* padding: 30px 20px; */
+  /* background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%);
+  border-radius: 12px; */
+  margin: 20px 0;
+  /* border: 2px solid #d4edda; */
+}
+
+.no-more-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+  opacity: 0.8;
+}
+
+.no-more-text {
+  font-size: 12px;
+  /* font-weight: 600; */
+  color: #6c757d;
+  /* margin-bottom: 4px; */
+}
+
+.no-more-subtext {
+  font-size: 14px;
+  color: #6c757d;
+  font-weight: 400;
+}
+
+/* 스크롤 애니메이션 */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 페이드 인 애니메이션 */
+.infinite-scroll-loading {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.no-more-products {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .infinite-scroll-loading,
+  .no-more-products {
+    padding: 20px 15px;
+    margin: 15px 0;
+  }
+  
+  .loading-spinner {
+    width: 28px;
+    height: 28px;
+    border-width: 2px;
+  }
+  
+  .loading-text > div:first-child {
+    font-size: 14px;
+  }
+  
+  .loading-subtext {
+    font-size: 12px;
+  }
+  
+  .no-more-icon {
+    font-size: 28px;
+  }
+  
+  .no-more-text {
+    font-size: 14px;
+  }
+  
+  .no-more-subtext {
+    font-size: 12px;
+  }
+}

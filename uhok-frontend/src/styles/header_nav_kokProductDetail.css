@@ -1,0 +1,23 @@
+/* 상품 상세 페이지 전용 Header Nav 내용 배치 (틀은 HeaderNavFrame) */
+.hn-product-left,
+.hn-product-right {
+  display: flex;
+  align-items: center;
+}
+
+.hn-product-left {
+  gap: 0; /* 뒤로가기 버튼만 있음 */
+}
+
+.hn-product-right {
+  padding-top: 7px;
+  justify-content: center; /* 중앙 정렬 */
+}
+
+.hn-product-center {
+  flex: 1;
+  display: flex;
+  align-items: center;    /* 헤더 높이 기준 수직 중앙 */
+  justify-content: center;/* 수평 중앙 */
+  text-align: center;
+}
